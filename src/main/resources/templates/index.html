@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8" />
+<title>welcome!</title>
+<style type="text/css">
+table.gridtable {
+	font-family: verdana, arial, sans-serif;
+	font-size: 11px;
+	border-width: 1px;
+	border-collapse: collapse;
+}
+
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	background-color: #dedede;
+}
+
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+}
+
+tr:nth-child(odd) {
+	background: RGB(236, 236, 236);
+}
+</style>
+</head>
+<body>
+	
+	<div align="center">
+		<h1>展示用户</h1>
+		<table class="gridtable">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>密码</th>
+					<th>org</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user,userlist:${userlist}">
+					<td th:text="${user.userName}" />
+					<td th:text="${user.password}" />
+					<td th:text="${user.org}" />
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
